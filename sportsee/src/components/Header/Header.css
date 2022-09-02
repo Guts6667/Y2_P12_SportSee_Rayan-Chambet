@@ -16,6 +16,7 @@ header{
     background-color: #020203;
     position: sticky;
     z-index: 2;
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
 .header-boxLogo{
     width: 20%;

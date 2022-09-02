@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Goal
+
+Créer un bouton pour le USER 12 et le 18.
+Je créé un seul bouton pour switcher entre datas mockées et l'API
+
+Créer un fichier répertoire qui va stocker mes endpoints dans des variables.
+
+Utiliser useContext pour définir le type de datas utilisé API ou Mocks.

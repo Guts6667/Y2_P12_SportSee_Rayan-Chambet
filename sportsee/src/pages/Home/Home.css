@@ -1,0 +1,29 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+    text-align: center;
+    row-gap: 20px;
+}
+.box-btn{
+    display: flex;
+    column-gap: 20px;
+}
+
+.userBtn{
+    width: 80px;
+    box-shadow: 0px 2px 6px 0px #202424;
+    background-color:black;
+    border-radius:8px;
+    cursor:pointer;
+    color:#ffffff;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.userBtn:active{
+color: black;
+background-color: white;
+    
+}
