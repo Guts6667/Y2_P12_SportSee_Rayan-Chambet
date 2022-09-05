@@ -1,5 +1,5 @@
 .section___dashboard{
-    padding: 5% 15%;
+    margin-left: 15%;
     display: flex;
     flex-direction: column;
 
@@ -10,4 +10,12 @@ h1{
 }
 h1 > strong {
 color: #FF0101;
+}
+span{
+    font-weight: 400;
+    font-size: 18px;
+}
+.container__infos{
+    display: flex;
+    
 }

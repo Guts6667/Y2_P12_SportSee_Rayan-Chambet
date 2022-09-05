@@ -1,0 +1,18 @@
+.section__error{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-self: center;
+    margin-top: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    font-size: 48px;
+    font-weight: 800;
+
+}
+span{
+    font-size: 24px;
+    font-weight: 600;
+}
