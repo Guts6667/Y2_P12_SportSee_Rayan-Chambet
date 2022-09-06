@@ -5,6 +5,7 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 import KeyDatas from "../../components/KeyDatas";
 import DailyActivity from "../../components/DailyActivity";
 import DailyAverageSession from "../../components/DailyAverageSession";
+import UserPerformance from "../../components/UserPerformance";
 
 
 const Dashboard = () => {
@@ -28,7 +29,9 @@ const Dashboard = () => {
     let userAverageSession = null;
     USER_AVERAGE_SESSIONS.map(data => data.userId === userId ? userAverageSession = data : console.log('searching for ID'))
 
-
+    //USER_PERFORMANCE
+    let userPerformance = null;
+    USER_PERFORMANCE.map(data => data.userId === userId ? userPerformance = data : console.log('searching for ID'))
 
     return(
 
@@ -43,6 +46,7 @@ const Dashboard = () => {
                         <DailyActivity userActivity = {userActivity} />
                         <div className="container__infos-charts-box">
                             <DailyAverageSession userAverageSession = {userAverageSession} />
+                            <UserPerformance  userPerformance = {userPerformance} />
                         </div>
                     </div>
                     <KeyDatas keyData = {keyData} />

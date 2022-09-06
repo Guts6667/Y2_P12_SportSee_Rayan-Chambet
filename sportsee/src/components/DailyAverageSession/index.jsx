@@ -48,10 +48,9 @@ function CustomTooltip({ payload, active }) {
                         axisLine={false} 
                         tickLine={false} 
                         tick={{fontSize: 12, fontWeight: 500}} 
-                        stroke='rgb(255, 255, 255)' 
+                        stroke='rgba(255, 255, 255, 0.5)' 
                         tickMargin={40}
                         tickFormatter={dayConverter} 
-                        
                     />
                     <YAxis hide='true' domain={['dataMin', 'dataMax']} />
                     <Tooltip wrapperStyle={{outline: "none"}} content={<CustomTooltip />}  cursor={false} />
@@ -60,7 +59,8 @@ function CustomTooltip({ payload, active }) {
                         type='natural' 
                         stroke='#ffffff' 
                         dot={false} 
-                        strokeWidth={2} />
+                        strokeWidth={2} 
+                        />
                 </LineChart>
             </ResponsiveContainer>
         </div>
