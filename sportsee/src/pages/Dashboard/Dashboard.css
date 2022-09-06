@@ -18,7 +18,6 @@ span{
 }
 .container__infos{
     display: flex;
-    justify-content: space-between;
     column-gap: 5%;
     margin-top: 50px;
 }

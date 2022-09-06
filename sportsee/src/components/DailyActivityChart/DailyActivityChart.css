@@ -1,0 +1,9 @@
+.custom-tooltip{
+    background-color: #E60000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 7px;
+    border: none !important;
+}
