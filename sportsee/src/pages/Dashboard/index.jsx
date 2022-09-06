@@ -1,30 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import './Dashboard.css'
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../../data/mockedDatas";
 import KeyDatas from "../../components/KeyDatas";
 import DailyActivity from "../../components/DailyActivity";
+import DailyAverageSession from "../../components/DailyAverageSession";
 
 
 const Dashboard = () => {
-    //USER_MAIN_DATA
     // Retrieves the user ID and converts it to an integer
     let userId = parseInt(useParams().id);
+
+    //USER_MAIN_DATA
     // Temporary variable
     let tempUserDatas = null;
     // Compares user datas, if true => datas are stored in temporary variable
-    USER_MAIN_DATA.map(data => data.id === userId ? [tempUserDatas = data, console.log('Found ID')] : console.log('Searching for ID'))
+    USER_MAIN_DATA.map(data => data.id === userId ? tempUserDatas = data : console.log('Searching for ID'))
     // Destructuring of temporary variable
     const {id, userInfos, todayScore, keyData, score} = tempUserDatas;
     // -----------------------------------
 
     //USER_ACTIVITY
     let userActivity = null
-    USER_ACTIVITY.map(data => data.userId === userId ? [userActivity = data, console.log('Found ID')] : console.log('Seaching for ID'));
+    USER_ACTIVITY.map(data => data.userId === userId ? userActivity = data : console.log('Seaching for ID'));
 
+    //USER_AVERAGE_SESSIONS
+    let userAverageSession = null;
+    USER_AVERAGE_SESSIONS.map(data => data.userId === userId ? userAverageSession = data : console.log('searching for ID'))
 
-
-    
 
 
     return(
@@ -37,9 +40,9 @@ const Dashboard = () => {
                 </div>
                 <div className="container__infos">
                     <div className="container__infos-charts">
-                        <DailyActivity sessions = {userActivity} />
-                        <div>
-
+                        <DailyActivity userActivity = {userActivity} />
+                        <div className="container__infos-charts-box">
+                            <DailyAverageSession userAverageSession = {userAverageSession} />
                         </div>
                     </div>
                     <KeyDatas keyData = {keyData} />

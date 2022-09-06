@@ -1,0 +1,13 @@
+.container__dailyAverageSession{
+    background-color: #FF0000;
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+    width: 30%;
+}
+.container__dailyAverageSession > h2 {
+    font-weight: 500;
+    font-size: 15px;
+    opacity: 0.5;
+    
+}

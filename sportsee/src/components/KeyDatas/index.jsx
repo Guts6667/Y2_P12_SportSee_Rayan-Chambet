@@ -5,9 +5,7 @@ import lipidIcon from '../../assets/fat-icon.png'
 import proteinIcon from '../../assets/protein-icon.png'
 import './KeyDatas.css'
 const KeyDatas = (datas) => {
-console.log(datas);
 let { calorieCount, carbohydrateCount, lipidCount, proteinCount } = datas.keyData;
-console.log(calorieCount);
     return (
     <div className="container__keyDatas">
         <div className="container__keyDatas-card">

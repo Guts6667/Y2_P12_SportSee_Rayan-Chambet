@@ -1,15 +1,38 @@
 import React from "react";
-import DailyActivityChart from "../DailyActivityChart";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import "./DailyActivity.css"
 
 const DailyActivity = (userActivity) => {
-
+    const {sessions} = userActivity.userActivity;
+    function CustomTooltip({ payload, active }) {
+        if (active) {
+          return (
+            <div className="custom-tooltip">
+              <p className="label">{`${payload[0].value}Kcal`}</p>
+              <p className="label">{` ${payload[1].value}kg`}</p>
+            </div>
+          );
+        }
+      
+        return null;
+      }
+    
+      const CustomXAxis = (tick) =>{
+        if(tick){
+            let number = tick.split("-").pop();
+            number = number.slice(1)
+            return number
+            
+    
+        }
+    
+      }
     return (
         <div className="container__activity">
             <div className="container__activity-title">
-                <span>
+                <h2>
                     Activité quotidienne
-                </span>
+                </h2>
                 <ul>
                     <li>
                         <span>Poids (kg)</span>
@@ -20,8 +43,18 @@ const DailyActivity = (userActivity) => {
                 </ul>
             </div>
             <div>
-                {/* Insert Chart here*/}
-                <DailyActivityChart  sessions = {userActivity} />
+                {/* Component Chart daily activity*/}
+                <ResponsiveContainer width="100%" height={200} >
+                    <BarChart data={sessions}  margin={{ top: 20, right: 30, left: 20, bottom: 5 }} >
+                        <CartesianGrid  strokeDasharray="2 2" vertical={false}/>
+                        <XAxis dataKey="day" tickFormatter={CustomXAxis} tickLine={false}/>
+                        <YAxis yAxisId="kilogram" dataKey="kilogram" orientation="right"  axisLine={false} tickLine={false} domain={["dataMin-7", "dataMin+3"]}/>
+                        <YAxis yAxisId="calories" dataKey="calories" orientation="left"  axisLine={false}  tickLine={false} hide={true}  domain={[0, "dataMax+30"]}/>
+                        <Tooltip wrapperStyle={{outline: "none"}} content={<CustomTooltip />}/>
+                        <Bar yAxisId="calories" dataKey="calories"  fill="#282D30"  radius={3} barSize ={7}/>
+                        <Bar yAxisId="kilogram"  dataKey="kilogram"fill="#E60000" radius={3} barSize ={7} />
+                    </BarChart>
+            </ResponsiveContainer>
             </div>
         </div>
     )

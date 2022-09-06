@@ -8,16 +8,26 @@
    justify-content: space-between;
    padding: 10px;
 }
+.container__activity-title > h2 {
+    font-weight: 500;
+font-size: 15px;
+}
 .container__activity-title > ul{
     display: flex;
     column-gap: 20px;
     list-style-type: none;
 }
+li > span{
+    font-weight: 500 !important;
+    font-size: 14px !important;
+}
+
 li:first-of-type{
     color: black;
 }
 li:first-of-type > span{
     color: #74798C;
+    
 }
 li:last-of-type{
     color: #E60000;
@@ -29,4 +39,12 @@ li::before {
     content: "●"; 
     display: inline-block; 
     margin-right: 10px
+}
+.custom-tooltip{
+    background-color: #E60000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 7px;
 }
