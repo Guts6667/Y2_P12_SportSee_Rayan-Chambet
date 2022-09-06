@@ -10,7 +10,7 @@ const Dashboard = () => {
     //USER_MAIN_DATA
     // Retrieves the user ID and converts it to an integer
     let userId = parseInt(useParams().id);
-    console.log(userId);
+    // Temporary variable
     let tempUserDatas = null;
     // Compares user datas, if true => datas are stored in temporary variable
     USER_MAIN_DATA.map(data => data.id === userId ? [tempUserDatas = data, console.log('Found ID')] : console.log('Searching for ID'))
@@ -19,7 +19,8 @@ const Dashboard = () => {
     // -----------------------------------
 
     //USER_ACTIVITY
-    
+    let userActivity = null
+    USER_ACTIVITY.map(data => data.userId === userId ? [userActivity = data, console.log('Found ID')] : console.log('Seaching for ID'));
 
 
 
@@ -35,10 +36,8 @@ const Dashboard = () => {
                     <span>Félicitations, vous avez explosé vos objectifs hier 👏</span>
                 </div>
                 <div className="container__infos">
-                    <div>
-                        <div>
-                            <DailyActivity />
-                        </div>
+                    <div className="container__infos-charts">
+                        <DailyActivity sessions = {userActivity} />
                         <div>
 
                         </div>

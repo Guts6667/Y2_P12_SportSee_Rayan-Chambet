@@ -7,6 +7,7 @@
 h1{
     font-weight: 500;
     font-size: 48px;
+    margin-block-end: 0.30em
 }
 h1 > strong {
 color: #FF0101;
@@ -17,5 +18,10 @@ span{
 }
 .container__infos{
     display: flex;
-    
+    justify-content: space-between;
+    column-gap: 5%;
+    margin-top: 50px;
+}
+.container__infos-charts{
+    width: 65%;
 }

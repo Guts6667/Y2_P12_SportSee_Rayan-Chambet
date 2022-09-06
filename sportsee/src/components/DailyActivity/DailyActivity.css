@@ -1,0 +1,32 @@
+.container__activity{
+    background-color: #FBFBFB;
+    border-radius: 5px;
+}
+.container__activity-title{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 10px;
+}
+.container__activity-title > ul{
+    display: flex;
+    column-gap: 20px;
+    list-style-type: none;
+}
+li:first-of-type{
+    color: black;
+}
+li:first-of-type > span{
+    color: #74798C;
+}
+li:last-of-type{
+    color: #E60000;
+}
+li:last-of-type > span{
+    color: #74798C;
+}
+li::before {
+    content: "●"; 
+    display: inline-block; 
+    margin-right: 10px
+}

@@ -16,7 +16,7 @@ const Home = () => {
             <div className="box-btn">
                 {/*Creates a link leading towards the Dashboard for each ID found */}
                 {userDatas.map(user => 
-                    <Link to = { `/dashboard/${user.id}` } key={`${user.userInfos.firstName}-${user.id}`} className = 'userBtn'>{user.userInfos.firstName}</Link>
+                    <Link to = {`/dashboard/${user.id}` } key={`${user.userInfos.firstName}-${user.id}`} className = 'userBtn'>{user.userInfos.firstName}</Link>
                 )}
             </div>
         </main>
