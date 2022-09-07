@@ -6,6 +6,7 @@ import KeyDatas from "../../components/KeyDatas";
 import DailyActivity from "../../components/DailyActivity";
 import DailyAverageSession from "../../components/DailyAverageSession";
 import UserPerformance from "../../components/UserPerformance";
+import UserScore from "../../components/UserScore";
 
 
 const Dashboard = () => {
@@ -47,6 +48,7 @@ const Dashboard = () => {
                         <div className="container__infos-charts-box">
                             <DailyAverageSession userAverageSession = {userAverageSession} />
                             <UserPerformance  userPerformance = {userPerformance} />
+                            <UserScore todayScore = {todayScore} score = {score} />
                         </div>
                     </div>
                     <KeyDatas keyData = {keyData} />
