@@ -5,6 +5,7 @@ import Error from "./components/Error";
 import Header from "./components/Header";
 import "./index.css";
 import Dashboard from "./pages/Dashboard";
+import DatasPage from "./pages/DatasPage";
 import Home from "./pages/Home";
 import reportWebVitals from "./reportWebVitals";
 
@@ -14,7 +15,8 @@ root.render(
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<DatasPage />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="/*" element={<Error />} />
       </Routes>

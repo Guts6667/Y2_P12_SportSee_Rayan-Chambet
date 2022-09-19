@@ -2,8 +2,8 @@ import React from "react";
 import './UserPerformance.css'
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 const UserPerformance = (datas) => {
-    console.log(datas);
-    const {data, kind} = datas.userPerformance;
+    let performanceDatas = datas.userPerformance
+    const {data, kind} = performanceDatas;
     //Should I modify the order of the datas?
     function reverseData(array){
         const dataReversedArray = []

@@ -1,17 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import './Dashboard.css'
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../../data/mockedDatas";
+import { USER_MAIN_DATA} from "../../data/mockedDatas";
 import KeyDatas from "../../components/KeyDatas";
 import DailyActivity from "../../components/DailyActivity";
 import DailyAverageSession from "../../components/DailyAverageSession";
 import UserPerformance from "../../components/UserPerformance";
 import UserScore from "../../components/UserScore";
-
-
+import {urlMockedDatas} from "../../utils/const/urlMockedDatas.js"
+import useApi from "../../utils/service/useApi.js"
 const Dashboard = () => {
+
+    // Fix issue with dataMain
+    // Utiliser le context pour switcher entre urlMockedDatas et l'API
+    const url = urlMockedDatas; 
+
     // Retrieves the user ID and converts it to an integer
     let userId = parseInt(useParams().id);
+    const dataMain = useApi(url.userMainDatas(userId));
+    const dataActivity = useApi(url.userActivityDatas(userId))
+    const dataPerformance = useApi(url.userPerformanceDatas(userId))
+    const dataSession = useApi(url.userSessionDatas(userId))
+
 
     //USER_MAIN_DATA
     // Temporary variable
@@ -22,32 +32,32 @@ const Dashboard = () => {
     const {id, userInfos, todayScore, keyData, score} = tempUserDatas;
     // -----------------------------------
 
-    //USER_ACTIVITY
-    let userActivity = null
-    USER_ACTIVITY.map(data => data.userId === userId ? userActivity = data : console.log('Seaching for ID'));
-
-    //USER_AVERAGE_SESSIONS
-    let userAverageSession = null;
-    USER_AVERAGE_SESSIONS.map(data => data.userId === userId ? userAverageSession = data : console.log('searching for ID'))
-
-    //USER_PERFORMANCE
-    let userPerformance = null;
-    USER_PERFORMANCE.map(data => data.userId === userId ? userPerformance = data : console.log('searching for ID'))
-
     return(
 
         // loadingState ? (
             <section className = 'section___dashboard'>
                 <div>
-                    <h1>Bonjour <strong>{ userInfos.firstName }</strong></h1>
+                    {userInfos.firstName ? (
+                        <h1>Bonjour <strong>{ userInfos.firstName }</strong></h1>
+                    ) : ""}
+                    
                     <span>Félicitations, vous avez explosé vos objectifs hier 👏</span>
                 </div>
                 <div className="container__infos">
                     <div className="container__infos-charts">
-                        <DailyActivity userActivity = {userActivity} />
+                        {dataActivity ? (
+                            <DailyActivity userActivity = {dataActivity} />
+                        ) : ""}
+                        
                         <div className="container__infos-charts-box">
-                            <DailyAverageSession userAverageSession = {userAverageSession} />
-                            <UserPerformance  userPerformance = {userPerformance} />
+                            {dataSession ? (
+                                <DailyAverageSession userAverageSession = {dataSession} /> 
+                            ) : ""}
+                            
+                            {dataPerformance ? (
+                                <UserPerformance  userPerformance = {dataPerformance} />
+                            ) : ""}
+                            
                             <UserScore todayScore = {todayScore} score = {score} />
                         </div>
                     </div>
