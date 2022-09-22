@@ -5,22 +5,23 @@ import Error from "./components/Error";
 import Header from "./components/Header";
 import "./index.css";
 import Dashboard from "./pages/Dashboard";
-import DatasPage from "./pages/DatasPage";
 import Home from "./pages/Home";
 import reportWebVitals from "./reportWebVitals";
+import { DataTypeProvider } from "./utils/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<DatasPage />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/dashboard/:id" element={<Dashboard />} />
-        <Route path="/*" element={<Error />} />
-      </Routes>
-    </Router>
+    <DataTypeProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard/:id" element={<Dashboard />} />
+          <Route path="/*" element={<Error />} />
+        </Routes>
+      </Router>
+    </DataTypeProvider>
   </React.StrictMode>
 );
 

@@ -7,13 +7,14 @@ import DailyActivity from "../../components/DailyActivity";
 import DailyAverageSession from "../../components/DailyAverageSession";
 import UserPerformance from "../../components/UserPerformance";
 import UserScore from "../../components/UserScore";
-import {urlMockedDatas} from "../../utils/const/urlMockedDatas.js"
 import useApi from "../../utils/service/useApi.js"
+import { DataTypeContext } from "../../utils/context";
+import { useContext } from "react";
 const Dashboard = () => {
-
+    const { dataType}  = useContext(DataTypeContext);
+    console.log(dataType);
     // Fix issue with dataMain
-    // Utiliser le context pour switcher entre urlMockedDatas et l'API
-    const url = urlMockedDatas; 
+    const url = dataType; 
 
     // Retrieves the user ID and converts it to an integer
     let userId = parseInt(useParams().id);
@@ -21,11 +22,11 @@ const Dashboard = () => {
     const dataActivity = useApi(url.userActivityDatas(userId))
     const dataPerformance = useApi(url.userPerformanceDatas(userId))
     const dataSession = useApi(url.userSessionDatas(userId))
-
-
+    
     //USER_MAIN_DATA
     // Temporary variable
-    let tempUserDatas = null;
+    let tempUserDatas = undefined;
+
     // Compares user datas, if true => datas are stored in temporary variable
     USER_MAIN_DATA.map(data => data.id === userId ? tempUserDatas = data : console.log('Searching for ID'))
     // Destructuring of temporary variable
@@ -34,7 +35,6 @@ const Dashboard = () => {
 
     return(
 
-        // loadingState ? (
             <section className = 'section___dashboard'>
                 <div>
                     {userInfos.firstName ? (
@@ -46,16 +46,16 @@ const Dashboard = () => {
                 <div className="container__infos">
                     <div className="container__infos-charts">
                         {dataActivity ? (
-                            <DailyActivity userActivity = {dataActivity} />
+                            <DailyActivity userActivity = {dataActivity.data} />
                         ) : ""}
                         
                         <div className="container__infos-charts-box">
                             {dataSession ? (
-                                <DailyAverageSession userAverageSession = {dataSession} /> 
+                                <DailyAverageSession userAverageSession = {dataSession.data} /> 
                             ) : ""}
                             
                             {dataPerformance ? (
-                                <UserPerformance  userPerformance = {dataPerformance} />
+                                <UserPerformance  userPerformance = {dataPerformance.data} />
                             ) : ""}
                             
                             <UserScore todayScore = {todayScore} score = {score} />
@@ -64,12 +64,8 @@ const Dashboard = () => {
                     <KeyDatas keyData = {keyData} />
                 </div>
             </section>
-        // ) : (
-            // <section className = "section___dashboard">
-            //     <h1>Veuillez patienter</h1>
-            // </section>
+
         )
-    // )
 }
 
     
