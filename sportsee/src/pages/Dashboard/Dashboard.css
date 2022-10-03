@@ -27,11 +27,11 @@ span{
 .container__infos-charts{
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 60%;
     row-gap: 20px;
 }
 .container__infos-charts-box{
     display: flex;
     justify-content: space-between;
-    height: 25vh;
+    height: auto;
 }

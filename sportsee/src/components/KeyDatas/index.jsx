@@ -4,6 +4,7 @@ import carbsIcon from '../../assets/carbs-icon.png';
 import lipidIcon from '../../assets/fat-icon.png'
 import proteinIcon from '../../assets/protein-icon.png'
 import './KeyDatas.css'
+import PropTypes from 'prop-types';
 const KeyDatas = (datas) => {
 let { calorieCount, carbohydrateCount, lipidCount, proteinCount } = datas.keyData;
     return (
@@ -46,5 +47,18 @@ let { calorieCount, carbohydrateCount, lipidCount, proteinCount } = datas.keyDat
         </div>
     </div>
     )
+}
+
+KeyDatas.propTypes = {
+    calorieCount : PropTypes.number,
+    carbohydrateCount : PropTypes.number,
+    lipidCount : PropTypes.number,
+    proteinCount : PropTypes.number,
+}
+KeyDatas.defaultProps = {
+    calorieCount : 0,
+    carbohydrateCount : 0,
+    lipidCount : 0,
+    proteinCount : 0,
 }
 export default KeyDatas;

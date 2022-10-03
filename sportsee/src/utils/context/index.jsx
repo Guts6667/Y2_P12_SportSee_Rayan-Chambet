@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { urlApiDatas } from "../const/urlApiDatas";
 import { urlMockedDatas } from "../const/urlMockedDatas";
-
+import PropTypes from 'prop-types';
 
 
 export const DataTypeContext = createContext();
@@ -19,4 +19,11 @@ export const DataTypeProvider = ({ children }) => {
             {children}
         </DataTypeContext.Provider>
     )
+}
+
+
+DataTypeProvider.propTypes = {
+    urlMockedDatas : PropTypes.string,
+    urlApiDatas : PropTypes.string,
+    dataType : PropTypes.string
 }

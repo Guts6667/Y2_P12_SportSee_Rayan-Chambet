@@ -1,9 +1,10 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import "./DailyActivity.css"
+import PropTypes from 'prop-types';
 
 const DailyActivity = (userActivity) => {
-    const {sessions} = userActivity.userActivity;
+    const dataActivity = userActivity.userActivity
     function CustomTooltip({ payload, active }) {
         if (active) {
           return (
@@ -45,7 +46,8 @@ const DailyActivity = (userActivity) => {
             <div>
                 {/* Component Chart daily activity*/}
                 <ResponsiveContainer width="100%" height={200} >
-                    <BarChart data={sessions}  margin={{ top: 20, right: 30, left: 20, bottom: 5 }} >
+                    { userActivity && (
+                        <BarChart data={dataActivity}  margin={{ top: 20, right: 30, left: 20, bottom: 5 }} >
                         <CartesianGrid  strokeDasharray="2 2" vertical={false}/>
                         <XAxis dataKey="day" tickFormatter={CustomXAxis} tickLine={false}/>
                         <YAxis yAxisId="kilogram" dataKey="kilogram" orientation="right"  axisLine={false} tickLine={false} domain={["dataMin-7", "dataMin+3"]}/>
@@ -54,10 +56,14 @@ const DailyActivity = (userActivity) => {
                         <Bar yAxisId="calories" dataKey="calories"  fill="#282D30"  radius={3} barSize ={7}/>
                         <Bar yAxisId="kilogram"  dataKey="kilogram"fill="#E60000" radius={3} barSize ={7} />
                     </BarChart>
+                    )}
             </ResponsiveContainer>
             </div>
         </div>
     )
 }
 
+DailyActivity.propTypes = {
+    sessions : PropTypes.array
+}
 export default DailyActivity;

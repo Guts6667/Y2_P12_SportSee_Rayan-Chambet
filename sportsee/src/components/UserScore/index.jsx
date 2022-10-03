@@ -1,30 +1,31 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { ResponsiveContainer, RadialBarChart, RadialBar, PolarAngleAxis, Legend,PieChart, Pie, Cell} from "recharts";
+import { ResponsiveContainer, PieChart, Pie, Cell} from "recharts";
 import './UserScore.css'
-
+import PropTypes from 'prop-types';
 
 const UserScore = (dataScore) => {
+    let datasScore = dataScore
 const [dataScorePercentage, setDatasScorePercentage] = useState(0)
 const [dataTodayScorePercentage, setDatasTodayScorePercentage] = useState(0)
 
 useEffect(() => {
-    if(dataScore.score !== null || dataScore.score !== undefined){
-        console.log(dataScore.score * 100);
-        setDatasScorePercentage( dataScore.score * 100)
+    if(datasScore.score !== null || datasScore.score !== undefined){
+        setDatasScorePercentage( datasScore.score * 100)
     }
-    if(dataScore.todayScore !== null || dataScore.todayScore !== undefined){
-        setDatasTodayScorePercentage(dataScore.todayScore * 100)
+    if(datasScore.todayScore !== null || datasScore.todayScore !== undefined){
+        setDatasTodayScorePercentage(datasScore.todayScore * 100)
     }
    
 
-}, [dataScore])
+}, [datasScore])
 
-const scoreDatas = [{value : dataScore.score}, {value : 1 - dataScore.score}]
-const todayScoreDatas = [{value : dataScore.todayScore}, {value : 1 - dataScore.todayScore}]
+const scoreDatas = [{value : datasScore.score}, {value : 1 - datasScore.score}]
+const todayScoreDatas = [{value : datasScore.todayScore}, {value : 1 - datasScore.todayScore}]
     return(
-        <div className="container__score">
+        dataScore && (
+<div className="container__score">
         <ResponsiveContainer width="100%" height='100%'>
         <PieChart width={730} height={250}>
         <circle cx="50%" cy="50%" fill="white"  r="70"/>
@@ -53,7 +54,24 @@ const todayScoreDatas = [{value : dataScore.todayScore}, {value : 1 - dataScore.
             {/*Insert text here */}
         </div>
     </div>
+        )
+        
     )
 }
+
+UserScore.propTypes  = {
+dataScorePercentage : PropTypes.number,
+dataTodayScorePercentage : PropTypes.number,
+todayScore : PropTypes.number,
+todayScoreDatas : PropTypes.number
+}
+
+UserScore.defaultProps = {
+    dataScorePercentage : 0,
+    dataTodayScorePercentage : 0,
+    todayScore : 0,
+    todayScoreDatas : 0
+}
+
 
 export default UserScore;

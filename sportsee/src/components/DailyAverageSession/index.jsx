@@ -1,9 +1,10 @@
 import React from "react";
 import './DailyAverageSession.css'
 import { ResponsiveContainer, LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
+import PropTypes from 'prop-types';
 const DailyAverageSession = (userAverageSession) => {
-const { sessions } =  userAverageSession.userAverageSession;
-console.log(sessions);
+const  sessions  =  userAverageSession.userAverageSession.sessions;
+
 
 const dayConverter = (day) => {
     switch(day){
@@ -29,10 +30,12 @@ function CustomTooltip({ payload, active }) {
     return null;
   }
     return(
-        <div className="container__dailyAverageSession">
+<div className="container__dailyAverageSession">
             <h2>Durée moyenne des sessions</h2>
             <ResponsiveContainer width="100%" height={200}  >
-                <LineChart
+                {userAverageSession && (
+
+<LineChart
                     data={sessions}
                     margin={{
                         top:80,
@@ -62,10 +65,14 @@ function CustomTooltip({ payload, active }) {
                         strokeWidth={2} 
                         />
                 </LineChart>
+                )}
+                
             </ResponsiveContainer>
         </div>
-
     )
+}
+DailyAverageSession.propTypes = {
+    sessions : PropTypes.array
 }
 
 export default DailyAverageSession;
