@@ -3,11 +3,13 @@ import './UserPerformance.css'
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 import PropTypes from 'prop-types';
 const UserPerformance = (userAveragePerformance) => {
+
+    // Retrieves data related to the user performances
     const dataPerformance = userAveragePerformance.userAveragePerformance;
     const data = dataPerformance.data;
     const kind = dataPerformance.kind
 
-    //Should I modify the order of the datas?
+    // this function reverses the order of the array containing the types of performances to match the mockup
     function reverseData  (array)  {
         const dataReversedArray = []
         for(let i=array.length - 1; i >= 0; i --){

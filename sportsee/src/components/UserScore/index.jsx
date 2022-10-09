@@ -6,11 +6,16 @@ import './UserScore.css'
 import PropTypes from 'prop-types';
 
 const UserScore = (dataScore) => {
+    // Retrieves datas related to the score
     let datasScore = dataScore
+
 const [dataScorePercentage, setDatasScorePercentage] = useState(0)
 const [dataTodayScorePercentage, setDatasTodayScorePercentage] = useState(0)
 
 useEffect(() => {
+    // Here the score is set depending on the type of datas retrieved meaning "score" or "todayScore"
+    // Then it's multiplied by 100 to set a pourcentage of the goal passed in the chart
+    
     if(datasScore.score !== null || datasScore.score !== undefined){
         setDatasScorePercentage( datasScore.score * 100)
     }

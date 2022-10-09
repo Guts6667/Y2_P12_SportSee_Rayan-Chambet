@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 const DailyActivity = (userActivity) => {
     const dataActivity = userActivity.userActivity
+
+    // Retrieves the datas related to the 
     function CustomTooltip({ payload, active }) {
         if (active) {
           return (

@@ -3,9 +3,10 @@ import './DailyAverageSession.css'
 import { ResponsiveContainer, LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
 import PropTypes from 'prop-types';
 const DailyAverageSession = (userAverageSession) => {
+    // Retrieves datas related to the user sessions
 const  sessions  =  userAverageSession.userAverageSession.sessions;
 
-
+// Converts days to keep only their initials so it matches the mockup
 const dayConverter = (day) => {
     switch(day){
         case 1: return 'L';

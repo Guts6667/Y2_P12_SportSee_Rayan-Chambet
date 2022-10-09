@@ -6,7 +6,9 @@ import proteinIcon from '../../assets/protein-icon.png'
 import './KeyDatas.css'
 import PropTypes from 'prop-types';
 const KeyDatas = (datas) => {
-let { calorieCount, carbohydrateCount, lipidCount, proteinCount } = datas.keyData;
+    // Retrives and destructures the key datas to distribute them inside the components
+    let keyDatas = datas.keyData;
+let { calorieCount, carbohydrateCount, lipidCount, proteinCount } = keyDatas;
     return (
     <div className="container__keyDatas">
         <div className="container__keyDatas-card">

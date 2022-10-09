@@ -5,7 +5,7 @@ import iconBike from '../../assets/icon-bike.png';
 import iconGym from '../../assets/icon-gym.png';
 import iconMeditation from '../../assets/icon-meditation.png';
 
-
+// Sidebar component
 const Sidebar = () => {
 
 return(

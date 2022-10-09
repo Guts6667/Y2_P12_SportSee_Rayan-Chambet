@@ -3,6 +3,7 @@ import PerformanceDatas from "../class/PerformanceDatas";
 import SessionDatas from "../class/SessionDatas";
 import MainDatas from "../class/MainDatas";
 
+// This functions picks the right Class depending on the url
 const convertDatas = (res, url) => {
   console.log(url);
   if (url.includes("activity") || url.includes("userActivityDatas")) {
@@ -17,6 +18,7 @@ const convertDatas = (res, url) => {
     return new MainDatas(
       res.data.id,
       res.data.userInfos,
+      res.data.todayScore,
       res.data.score,
       res.data.keyData
     );

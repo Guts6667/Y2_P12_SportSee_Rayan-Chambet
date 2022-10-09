@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
 const Header = () => {
+    // Header component
     const [path, setPath] = useState(undefined);
     const pathname = window.location.pathname
     useEffect(() => {
@@ -29,9 +30,9 @@ const Header = () => {
                 )}
                 
             </header>
-            {path && (
+            {/* {path && ( */}
                 <Sidebar />
-            ) }
+            {/* ) } */}
             
         </div>
         

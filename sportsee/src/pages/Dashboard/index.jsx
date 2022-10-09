@@ -12,21 +12,18 @@ import { useContext } from "react";
 import PropTypes from 'prop-types';
 
 const Dashboard = () => {
+    // The dataType (Mocked or API) is retrieved through useContext 
     const { dataType}  = useContext(DataTypeContext);
-    // Fix issue with dataMain
     const url = dataType; 
 
     // Retrieves the user ID and converts it to an integer
     let userId = parseInt(useParams().id);
+    //Fetches the datas depending on the url, it takes the userId retrieved through useParams() as parameter
     const dataMain = useApi(url.userMainDatas(userId));
     const dataActivity = useApi(url.userActivityDatas(userId))
     const dataPerformance = useApi(url.userPerformanceDatas(userId))
     const dataSession = useApi(url.userSessionDatas(userId))
 
-    if(dataMain){
-        console.log(dataMain);
-    }
-    
 
     // -----------------------------------
 
@@ -68,14 +65,6 @@ const Dashboard = () => {
 }
 
 
-    Dashboard.propTypes = {
-        userInfos : PropTypes.object,
-        todayScore : PropTypes.number || PropTypes.undefined,
-        keyData : PropTypes.object,
-        score : PropTypes.number, 
-        dataSession : PropTypes.object
-
-    }
 
 
 export default Dashboard;

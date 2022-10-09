@@ -1,79 +1,54 @@
-# Getting Started with Create React App
+# Complete project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The complete project is available here:
+https://github.com/Guts6667/Y2_P12_SportSee_Rayan-Chambet.git
+(It contains the backend and the frontend)
 
-## Available Scripts
+# Backend of the project
 
-In the project directory, you can run:
+The backend is available:
+https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 
-### `npm start`
+# Install the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Run `yarn install` or `npm install` at the base of the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Start the project
 
-### `npm test`
+In the root directory, run `yarn dev` or `npm run dev`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the "sportsee" directory, run `yarn start` or `npm run start`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Description
 
 ## Goal
 
-Créer un bouton pour le USER 12 et le 18.
-Je créé un seul bouton pour switcher entre datas mockées et l'API
+In this project, the goal was to realized a MVP of an application displaying datas related to the sport activity of two users.
 
-Créer un fichier répertoire qui va stocker mes endpoints dans des variables.
+## Datas
 
-Utiliser useContext pour définir le type de datas utilisé API ou Mocks.
+Two types of datas are retrieved using fetch:
+
+- Mocked Datas
+  Two folders called "data12" & "data18" have been created in "public".
+
+- Micro API
+  The API retrieved through the "Micro API" are available via these links:
+
+      - `http://localhost:3000/user/${userId}` - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
+      - `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
+      - `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day. The week starts on Monday.
+      - `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
+
+Example of query:
+
+    `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
+    `http://localhost:3000/user/18` - Retrieves user 18's main information.
+
+## Recharts
+
+The datas are rendered using Recharts.
+See documentation here: `https://recharts.org/en-US/`
+
+Comment installer l'app #1
+Ouvrir le

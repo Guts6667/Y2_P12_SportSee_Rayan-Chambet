@@ -12,6 +12,7 @@
     background-color: #020203;
     color: white;
     text-align: center;
+
 }
 .sidebar > img{
     width: 64px;
@@ -20,4 +21,9 @@
 .sidebar-box{
     transform: rotate(-90deg);
     width: 70px;
+}
+.sidebar-text{
+    width: 40%;
+display: block;
+rotate: 270deg;
 }
