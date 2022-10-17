@@ -50,5 +50,4 @@ Example of query:
 The datas are rendered using Recharts.
 See documentation here: `https://recharts.org/en-US/`
 
-Comment installer l'app #1
-Ouvrir le
+If you wish to install recharts your self run `npm install recharts` or `yarn add recharts`
