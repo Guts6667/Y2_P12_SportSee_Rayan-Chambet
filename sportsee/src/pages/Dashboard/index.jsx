@@ -9,7 +9,6 @@ import UserScore from "../../components/UserScore";
 import useApi from "../../utils/service/useApi.js"
 import { DataTypeContext } from "../../utils/context";
 import { useContext } from "react";
-import PropTypes from 'prop-types';
 
 const Dashboard = () => {
     // The dataType (Mocked or API) is retrieved through useContext 
