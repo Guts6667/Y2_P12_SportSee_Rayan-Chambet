@@ -5,10 +5,16 @@ import lipidIcon from '../../assets/fat-icon.png'
 import proteinIcon from '../../assets/protein-icon.png'
 import './KeyDatas.css'
 import PropTypes from 'prop-types';
-const KeyDatas = (datas) => {
-    // Retrives and destructures the key datas to distribute them inside the components
-    let keyDatas = datas.keyData;
-let { calorieCount, carbohydrateCount, lipidCount, proteinCount } = keyDatas;
+
+/**
+ * This component renders the keyDatas related to the user such as calorieCount, lipidCount, etc..
+ * @param {Number} calorieCount
+ * @param {Number} carbohydrateCount
+ * @param {Number} lipidCount
+ * @param {Number} proteinCount
+ * @returns {JSX} React Component
+ */
+const KeyDatas = ({calorieCount, carbohydrateCount, lipidCount, proteinCount }) => {
     return (
     <div className="container__keyDatas">
         <div className="container__keyDatas-card">

@@ -9,6 +9,11 @@ https://github.com/Guts6667/Y2_P12_SportSee_Rayan-Chambet.git
 The backend is available:
 https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 
+### Prerequisites
+
+- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
+- [Yarn (**version v1.22.17**)](https://yarnpkg.com/)
+
 # Install the project
 
 Run `yarn install` or `npm install` at the base of the project

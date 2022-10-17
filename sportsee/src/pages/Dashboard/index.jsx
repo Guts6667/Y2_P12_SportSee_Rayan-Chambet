@@ -9,7 +9,10 @@ import UserScore from "../../components/UserScore";
 import useApi from "../../utils/service/useApi.js"
 import { DataTypeContext } from "../../utils/context";
 import { useContext } from "react";
-
+/**
+ * The Dashboard
+ * @returns {JSX} React Page
+ */
 const Dashboard = () => {
     // The dataType (Mocked or API) is retrieved through useContext 
     const { dataType}  = useContext(DataTypeContext);
@@ -22,11 +25,11 @@ const Dashboard = () => {
     const dataActivity = useApi(url.userActivityDatas(userId))
     const dataPerformance = useApi(url.userPerformanceDatas(userId))
     const dataSession = useApi(url.userSessionDatas(userId))
-
-
     // -----------------------------------
 
+
     return(
+        
         dataMain && (
             <section className = 'section___dashboard'>
             <div>
@@ -54,7 +57,7 @@ const Dashboard = () => {
                         <UserScore todayScore = {dataMain.todayScore} score = {dataMain.score} />
                     </div>
                 </div>
-                <KeyDatas keyData = {dataMain.keyData} />
+                <KeyDatas calorieCount =  {dataMain.keyData.calorieCount} carbohydrateCount = {dataMain.keyData.carbohydrateCount} lipidCount = {dataMain.keyData.lipidCount} proteinCount={dataMain.keyData.proteinCount} />
             </div>
         </section>
         )
