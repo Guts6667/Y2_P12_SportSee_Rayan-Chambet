@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 5%;
+    row-gap: 2%;
     height: 100%;
     z-index: 1;
     position: fixed;
@@ -15,7 +15,7 @@
 
 }
 .sidebar > img{
-    width: 64px;
+    width: 50px;
     height: auto;
 }
 .sidebar-box{
@@ -23,7 +23,11 @@
     width: 70px;
 }
 .sidebar-text{
-    width: 40%;
-display: block;
-rotate: 270deg;
+    font-size: 12px;
+    bottom: 130px;
+    display: block;
+    rotate: 270deg;
+    position: absolute;
+    width: 250px;
+
 }

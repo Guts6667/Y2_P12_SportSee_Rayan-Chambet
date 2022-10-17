@@ -1,7 +1,11 @@
 .container__userPerformance{
     background-color: #282D30;
     width: 25%;
-    padding: 20px;
+    padding: 25px;
     border-radius: 5px;
 
+
+}
+svg{
+    overflow: visible;
 }
