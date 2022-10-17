@@ -1,13 +1,14 @@
 import './Header.css'
 import logo from '../../assets/logo.png' 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
 const Header = () => {
     // Header component
-    const [path, setPath] = useState(undefined);
-    const pathname = window.location.pathname
+    const [path, setPath] = useState(false);
+    const pathname = useLocation().pathname
     useEffect(() => {
+        
         if(pathname ==='/'){
             setPath(false)
         }else{
@@ -30,9 +31,10 @@ const Header = () => {
                 )}
                 
             </header>
-            {/* {path && ( */}
+            {path && (
                 <Sidebar />
-            {/* ) } */}
+            )}
+                
             
         </div>
         
