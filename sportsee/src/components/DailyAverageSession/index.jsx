@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
  */
 const DailyAverageSession = ({userAverageSession}) => {
     // Retrieves datas related to the user sessions
-
 // Converts days to keep only their initials so it matches the mockup
 const dayConverter = (day) => {
     switch(day){

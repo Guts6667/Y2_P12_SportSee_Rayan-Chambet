@@ -24,7 +24,6 @@ const Dashboard = () => {
     const dataMain = useApi(url.userMainDatas(userId));
     const dataActivity = useApi(url.userActivityDatas(userId))
     const dataPerformance = useApi(url.userPerformanceDatas(userId))
-    
     const dataSession = useApi(url.userSessionDatas(userId))
     // -----------------------------------
 

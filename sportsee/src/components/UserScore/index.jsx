@@ -7,13 +7,14 @@ import PropTypes from 'prop-types';
 
 
 /**
- * Data score retrieves datas related to the score and display them
+ * 
  * @param {Object} dataScore 
- * @returns {JSX} React Component
+ * @returns 
  */
 const UserScore = (dataScore) => {
-
+    console.log(dataScore);
     // Retrieves datas related to the score
+    let datasScore = dataScore
 
 const [dataScorePercentage, setDatasScorePercentage] = useState(0)
 const [dataTodayScorePercentage, setDatasTodayScorePercentage] = useState(0)
@@ -22,18 +23,18 @@ useEffect(() => {
     // Here the score is set depending on the type of datas retrieved meaning "score" or "todayScore"
     // Then it's multiplied by 100 to set a pourcentage of the goal passed in the chart
     
-    if(dataScore.score !== null || dataScore.score !== undefined){
-        setDatasScorePercentage( dataScore.score * 100)
+    if(datasScore.score !== null || datasScore.score !== undefined){
+        setDatasScorePercentage( datasScore.score * 100)
     }
-    if(dataScore.todayScore !== null || dataScore.todayScore !== undefined){
-        setDatasTodayScorePercentage(dataScore.todayScore * 100)
+    if(datasScore.todayScore !== null || datasScore.todayScore !== undefined){
+        setDatasTodayScorePercentage(datasScore.todayScore * 100)
     }
    
 
-}, [dataScore])
+}, [datasScore])
 
-const scoreDatas = [{value : dataScore.score}, {value : 1 - dataScore.score}]
-const todayScoreDatas = [{value : dataScore.todayScore}, {value : 1 - dataScore.scoretodayScore}]
+const scoreDatas = [{value : datasScore.score}, {value : 1 - datasScore.score}]
+const todayScoreDatas = [{value : datasScore.todayScore}, {value : 1 - datasScore.todayScore}]
     return(
         dataScore && (
 <div className="container__score">
