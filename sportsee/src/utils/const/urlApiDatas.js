@@ -1,5 +1,7 @@
 // List of API url
-
+/**
+ * List of Endpoints
+ */
 export const urlApiDatas = {
   userMainDatas(userId) {
     return `http://localhost:3000/user/${userId}`;

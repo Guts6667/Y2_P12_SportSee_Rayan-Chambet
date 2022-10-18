@@ -3,16 +3,15 @@ import './UserPerformance.css'
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 import PropTypes from 'prop-types';
 /**
- * 
- * @param {userAveragePerformance} userAveragePerformance 
- * @returns 
+ * This Component renders the datas related to the user performance
+ * @param {Object} userAveragePerformance 
+ * @returns {JSX} React Component
  */
 const UserPerformance = ({userAveragePerformance}) => {
-
     // Retrieves data related to the user performances
     const dataPerformance = userAveragePerformance;
     const data = dataPerformance.data;
-    const kind = dataPerformance.kind
+    // const kind = dataPerformance.kind
 
     // this function reverses the order of the array containing the types of performances to match the mockup
     function reverseData  (array)  {
@@ -57,16 +56,27 @@ const UserPerformance = ({userAveragePerformance}) => {
     )
 }
 
-UserPerformance.propTypes = UserPerformance.shapeI({
-    dataScorePercentage : PropTypes.number,
-    dataTodayScorePercentage : PropTypes.number,
-    score : PropTypes.number,
-    todayScore : PropTypes.number,
-    todayScoreDatas : PropTypes.number
-}
+UserPerformance.propTypes = {
+    data : PropTypes.shape({
+        dataScorePercentage : PropTypes.number,
+        dataTodayScorePercentage : PropTypes.number,
+        score : PropTypes.number || PropTypes.undefined,
+        todayScore : PropTypes.number || PropTypes.undefined,
+        todayScoreDatas : PropTypes.number
+    }),
+    kind : PropTypes.shape({
+        1 : PropTypes.string,
+        2 : PropTypes.string,
+        3 : PropTypes.string,
+        4 : PropTypes.string,
+        5 : PropTypes.string,
+        6 : PropTypes.string,
+    })
+} 
+
     
 
-);
+
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import "./DailyActivity.css"
-import PropTypes, { objectOf } from 'prop-types';
+import PropTypes from 'prop-types';
 
 /**
  * Daily Activity receives datas such as dates, kg and calories, then display them

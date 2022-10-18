@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 // DataTypeProvider allows to switch between the type of datas chosen by the user
 // Meaning => Mocked datas or API datas
 export const DataTypeContext = createContext();
+/**
+ * DataType Provider
+ */
 
 
 export const DataTypeProvider = ({ children }) => {

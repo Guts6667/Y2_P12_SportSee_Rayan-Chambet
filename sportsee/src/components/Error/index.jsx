@@ -1,5 +1,9 @@
 import React from "react";
 import './Error.css'
+/**
+ * Error Page
+ * @returns {JSX} React Component
+ */
 const Error = () => {
 
     return(

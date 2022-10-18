@@ -5,7 +5,10 @@ import iconBike from '../../assets/icon-bike.png';
 import iconGym from '../../assets/icon-gym.png';
 import iconMeditation from '../../assets/icon-meditation.png';
 import { Link } from "react-router-dom";
-
+/**
+ * Sidebar
+ * @returns {JSX} React Component
+ */
 // Sidebar component
 const Sidebar = () => {
 

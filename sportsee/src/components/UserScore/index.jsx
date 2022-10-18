@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 
 
 /**
- * 
- * @param {dataScore} dataScore 
- * @returns 
+ * Data score retrieves datas related to the score and display them
+ * @param {Object} dataScore 
+ * @returns {JSX} React Component
  */
 const UserScore = (dataScore) => {
-    console.log(dataScore);
+
     // Retrieves datas related to the score
 
 const [dataScorePercentage, setDatasScorePercentage] = useState(0)

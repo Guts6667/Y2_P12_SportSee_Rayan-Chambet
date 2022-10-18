@@ -3,6 +3,12 @@ import PerformanceDatas from "../class/PerformanceDatas";
 import SessionDatas from "../class/SessionDatas";
 import MainDatas from "../class/MainDatas";
 
+/**
+ * Converts the response from the fetch to an object using the right class
+ * @param {JSON} res
+ * @param {String} url
+ * @returns
+ */
 // This functions picks the right Class depending on the url
 const convertDatas = (res, url) => {
   if (url.includes("activity") || url.includes("userActivityDatas")) {

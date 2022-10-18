@@ -3,6 +3,11 @@ import logo from '../../assets/logo.png'
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
+
+/**
+ * Header
+ * @returns {JSX} React Components
+ */
 const Header = () => {
     // Header component
     const [path, setPath] = useState(false);

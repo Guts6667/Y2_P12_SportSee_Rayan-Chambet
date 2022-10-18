@@ -5,7 +5,10 @@ import { urlApiDatas } from "../../utils/const/urlApiDatas";
 import { DataTypeContext } from "../../utils/context";
 import "./Home.scss";
 
-// Page Home
+/**
+ * Page Home
+ * @returns {JSX} React Component
+ */
 const Home = () => {
 // useContext allows to switch between both data types (Mocked & API)
     const {  toggleDataType, dataType} = useContext(DataTypeContext);
