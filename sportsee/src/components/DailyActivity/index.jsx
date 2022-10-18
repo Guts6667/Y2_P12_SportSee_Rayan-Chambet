@@ -1,11 +1,14 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import "./DailyActivity.css"
-import PropTypes from 'prop-types';
+import PropTypes, { objectOf } from 'prop-types';
 
-const DailyActivity = (userActivity) => {
-    const dataActivity = userActivity.userActivity
-
+/**
+ * Daily Activity receives datas such as dates, kg and calories, then display them
+ * @param {Array} userActivity 
+ * @returns {JSX} React Component
+ */
+const DailyActivity = ({userActivity}) => {
     // Retrieves the datas related to the 
     function CustomTooltip({ payload, active }) {
         if (active) {
@@ -49,7 +52,7 @@ const DailyActivity = (userActivity) => {
                 {/* Component Chart daily activity*/}
                 <ResponsiveContainer width="100%" height={200} >
                     { userActivity && (
-                        <BarChart data={dataActivity}  margin={{ top: 20, right: 30, left: 20, bottom: 5 }} >
+                        <BarChart data={userActivity}  margin={{ top: 20, right: 30, left: 20, bottom: 5 }} >
                         <CartesianGrid  strokeDasharray="2 2" vertical={false}/>
                         <XAxis dataKey="day" tickFormatter={CustomXAxis} tickLine={false}/>
                         <YAxis yAxisId="kilogram" dataKey="kilogram" orientation="right"  axisLine={false} tickLine={false} domain={["dataMin-7", "dataMin+3"]}/>
@@ -66,6 +69,11 @@ const DailyActivity = (userActivity) => {
 }
 
 DailyActivity.propTypes = {
-    sessions : PropTypes.array
+    userActivity : PropTypes.arrayOf(PropTypes.shape({
+        calories : PropTypes.number,
+        day : PropTypes.string,
+        kilogram : PropTypes.number
+    })
+    )
 }
 export default DailyActivity;

@@ -47,7 +47,7 @@ const Dashboard = () => {
                     
                     <div className="container__infos-charts-box">
                         {dataSession && (
-                            <DailyAverageSession userAverageSession = {dataSession} /> 
+                            <DailyAverageSession userAverageSession = {dataSession.sessions} /> 
                         ) }
                         
                         {dataPerformance && (

@@ -5,7 +5,6 @@ import MainDatas from "../class/MainDatas";
 
 // This functions picks the right Class depending on the url
 const convertDatas = (res, url) => {
-  console.log(url);
   if (url.includes("activity") || url.includes("userActivityDatas")) {
     return new ActivityDatas(res.data.userId, res.data.sessions);
   }

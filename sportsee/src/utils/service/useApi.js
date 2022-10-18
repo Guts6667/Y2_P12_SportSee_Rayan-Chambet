@@ -4,7 +4,7 @@ import convertDatas from "./converDatas";
 
 /**
  * useApi takes an url in parameters and fetchs the datas, then it calls convertDatas to format them with the right Class
- * @param {string} url
+ * @param {String} url
  * @returns {Object} containing the datas
  */
 const useApi = (url) => {

@@ -2,10 +2,15 @@ import React from "react";
 import './UserPerformance.css'
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 import PropTypes from 'prop-types';
-const UserPerformance = (userAveragePerformance) => {
+/**
+ * 
+ * @param {userAveragePerformance} userAveragePerformance 
+ * @returns 
+ */
+const UserPerformance = ({userAveragePerformance}) => {
 
     // Retrieves data related to the user performances
-    const dataPerformance = userAveragePerformance.userAveragePerformance;
+    const dataPerformance = userAveragePerformance;
     const data = dataPerformance.data;
     const kind = dataPerformance.kind
 
@@ -52,10 +57,18 @@ const UserPerformance = (userAveragePerformance) => {
     )
 }
 
-UserPerformance.propTypes  = {
-    data : PropTypes.array,
-    kind : PropTypes.object
-    }
+UserPerformance.propTypes = UserPerformance.shapeI({
+    dataScorePercentage : PropTypes.number,
+    dataTodayScorePercentage : PropTypes.number,
+    score : PropTypes.number,
+    todayScore : PropTypes.number,
+    todayScoreDatas : PropTypes.number
+}
+    
+
+);
+
+
 
     
 
